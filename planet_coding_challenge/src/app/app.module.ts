@@ -7,9 +7,13 @@ import { AppComponent } from './app.component';
 // for test
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { MainPageComponent } from './main-page/main-page.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
