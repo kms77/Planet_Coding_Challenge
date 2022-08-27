@@ -1,1 +1,62 @@
-<p>sign-in works!</p>
+<div class="container justify-content-center .d-flex">
+    <div class="sign-in-form my-5 p-5">
+      <h2 class="mb-5">Planet Explorer</h2>
+      <form>
+        <div class="sign-in-form__content">
+          <div class="mb-3 row">
+            <label for="crew" class="form-label col-sm-4">Crew: </label>
+            <div class="col-sm-8">
+              <select name="crew">
+                <option>Crew1</option>
+                <option>Crew2</option>
+                <option>Crew3</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="type-of-user" class="form-label col-sm-4">Type of user: </label>
+            <div class="col-sm-8">
+              <select name="type-of-user">
+                <option>Captain</option>
+                <option>Robot</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="captain-name" class="form-label col-sm-4">Captain: </label>
+            <div class="col-sm-8">
+              <input type="text" name="captain-name" readonly>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="shuttle" class="form-label col-sm-4">Shuttle: </label>
+            <div class="col-sm-8">
+              <input type="text" name="shuttle" readonly>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <span class="form-label col-sm-4">Robots: </span>
+            <div class="mat-elevation-z8 table_crew_robots col-sm-8">
+              <mat-table [dataSource]="dataSource_robots">
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                  <mat-cell *matCellDef="let robot">
+                    <span class="mobile-label">Name:</span>
+                    {{robot}}
+                  </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+              <mat-paginator [pageSizeOptions]="[2, 4, 6]"
+                 [pageSize] = "2">
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+        <div class="sign-in-form__footer">
+        </div>
+      </form>
+  </div>
+</div>

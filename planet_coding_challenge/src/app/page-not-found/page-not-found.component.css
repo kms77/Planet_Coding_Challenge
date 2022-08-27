@@ -1,0 +1,23 @@
+body{
+  background-color:#98353c;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container__error-text{
+  text-align: center;
+}
+
+.p--color{
+  color: white;
+}
+
+.p--size{
+  font-weight: bold;
+  font-size: 25px;
+}
