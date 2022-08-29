@@ -15,6 +15,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AllPlanetsComponent } from './all-planets/all-planets.component';
 import { AllCrewsComponent } from './all-crews/all-crews.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     NoopAnimationsModule,
     MatPaginatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
