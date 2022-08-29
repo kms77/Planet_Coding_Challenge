@@ -23,7 +23,7 @@ table {
   display: flex;
   flex-direction: column;
   max-height:160px;
-  max-width: 400px;
+  max-width: 450px;
 }
 
 .mat-table {

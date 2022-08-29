@@ -12,12 +12,17 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AllPlanetsComponent } from './all-planets/all-planets.component';
+import { AllCrewsComponent } from './all-crews/all-crews.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     MainPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AllPlanetsComponent,
+    AllCrewsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     NgbModule,
     NoopAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
