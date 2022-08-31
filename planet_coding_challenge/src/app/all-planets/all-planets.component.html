@@ -1,1 +1,13 @@
-<p>{{planets}}</p>
+<div class="page-header">
+  <div ngbDropdown class="dropdown">
+    <button ngbDropdownToggle class="btn btn-light" type="button" id="dropdownMenuButton1" aria-expanded="false">Menu</button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+      <li *ngIf=""><a ngbDropdownItem href="#">Add new planet</a></li>
+      <li><a ngbDropdownItem href="#" [routerLink]="['/sign-in']">Back to sign-in</a></li>
+    </ul>
+  </div>
+  <div class="title justify-content-center">
+    <h2 class="text-center text-light">XPAND</h2>
+  </div>
+</div>
+<div class="page-body"></div>

@@ -1,4 +1,4 @@
-<div class="container justify-content-center .d-flex">
+<div class="container justify-content-center">
     <div class="sign-in-form my-5 p-5">
       <h2 class="mb-5">Planet Explorer</h2>
       <form [formGroup]="CrewFormGroup" (ngSubmit)="goToAllPlanets()">
@@ -7,20 +7,31 @@
             <div class="col-sm-6">
               <label for="crew" class="form-label col-sm-4 float-start">Crew: </label>
               <div class="col-sm-8">
-                <select name="crew"  formControlName="crew">
-                  <option selected="selected" hidden disable>{{initialCrew}}</option>
-                  <option *ngFor="let crew of crews" [ngValue]="crew"> {{crew.captain}}</option>
+                <select name="crew" formControlName="crew" (change)="onSelectedCrew($event)" required>
+                  <option hidden disabled selected value> -- choose your crew -- </option>
+                  <option *ngFor="let crew of crews" [value]="crew.crewID" [selected]="crew===selectedCrew"> {{crew.name}}</option>
                 </select>
+              </div>
+              <div *ngIf="submitted && getForm['crew'].invalid" class="col-sm-12 float-start">
+                <div *ngIf="getForm['crew'].errors?.['required']" class="text-danger">
+                  Crew is required!
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <label for="type-of-user" class="form-label col-sm-4 float-start">Type of user: </label>
               <div class="col-sm-8">
-                <select name="type-of-user">
-                  <option>Captain</option>
-                  <option>Robot</option>
-                  <option>Other</option>
+                <select name="type-of-user" formControlName="typeOfUser" required (change)="updateTypeOfUser($event)">
+                  <option hidden disabled selected value> -- choose type of user -- </option>
+                  <option>{{typeOfUser.captain}}</option>
+                  <option>{{typeOfUser.robot}}</option>
+                  <option>{{typeOfUser.other}}</option>
                 </select>
+              </div>
+              <div *ngIf="submitted && getForm['typeOfUser'].invalid" class="col-sm-12 float-start">
+                <div *ngIf="getForm['typeOfUser'].errors?.['required']" class="text-danger">
+                  Type of user is required!
+                </div>
               </div>
             </div>
           </div>
@@ -28,13 +39,23 @@
             <div class="col-6">
               <label for="captain-name" class="form-label col-sm-4 float-start">Captain: </label>
               <div class="col-sm-8 float-start">
-                <input type="text" name="captain-name" readonly>
+                <input type="text" name="captain-name" readonly formControlName="captain" required>
+              </div>
+              <div *ngIf="submitted && getForm['captain'].invalid" class="col-sm-12 float-start">
+                <div *ngIf="getForm['captain'].errors?.['required']" class="text-danger">
+                  Captain name is missing!
+                </div>
               </div>
             </div>
             <div class="col-6">
               <label for="shuttle" class="form-label col-sm-4 float-start">Shuttle: </label>
               <div class="col-sm-8 float-start">
-                <input type="text" name="shuttle" readonly>
+                <input type="text" name="shuttle" readonly formControlName="shuttle" required>
+              </div>
+              <div *ngIf="submitted && getForm['shuttle'].invalid" class="col-sm-12 float-start">
+                <div *ngIf="getForm['shuttle'].errors?.['required']" class="text-danger">
+                  Shuttle name is missing!
+                </div>
               </div>
             </div>
           </div>

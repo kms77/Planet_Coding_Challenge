@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AllPlanetsComponent } from './all-planets/all-planets.component';
@@ -21,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     SignInComponent,
-    MainPageComponent,
     PageNotFoundComponent,
     AllPlanetsComponent,
     AllCrewsComponent
