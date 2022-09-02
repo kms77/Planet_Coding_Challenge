@@ -1,0 +1,19 @@
+/* Add application styles & imports to this file! */
+
+@media only screen and (max-width: 700px) {
+  .modal_edit_planet {
+     width:100% !important;
+     position:relative!important;
+     left:0 !important;
+  }
+
+
+}
+.mat-form-field {
+  width: 100% !important;
+  margin-bottom: 5px;
+}
+
+mat-toolbar-row{
+  background-color: #98353c;
+}

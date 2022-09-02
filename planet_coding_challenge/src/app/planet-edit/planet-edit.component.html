@@ -1,0 +1,46 @@
+
+<div class="modal_edit_planet">
+	<mat-toolbar class="mat-elevation-z1 mb-4">
+
+		<mat-toolbar-row class="text-light">
+			<span>Edit Planet</span>
+		</mat-toolbar-row>
+	</mat-toolbar>
+	<form [formGroup]="PlanetFormGroup">
+    <mat-form-field>
+      <input type="text" formControlName="name" matInput placeholder="Planet name" />
+      <mat-error>This field is mandatory.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select formControlName="status" placeholder="Status">
+        <ng-container>
+          <mat-option value="1">{{status.ok}}</mat-option>
+          <mat-option value="2">{{status.not_ok}}</mat-option>
+          <mat-option value="3">{{status.en_route}}</mat-option>
+          <mat-option value="4">{{status.to_do}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field formControlName="description" appearance="fill">
+      <mat-label>Leave a description</mat-label>
+      <textarea matInput placeholder="Description..."></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input type="text" formControlName="imageURL" matInput placeholder="URL address of the image" />
+      <mat-error>This field is mandatory.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input type="number" min = "2" formControlName="numberOfRobots" matInput placeholder="Number of robots" />
+      <mat-error>This field is invalid.</mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <br>
+      <button mat-raised-button class="button py-1 px-5 float-start h6">Close</button>
+      <button mat-raised-button type="submit" [disabled]="PlanetFormGroup.invalid" class="button py-1 px-5 float-end h6">Save</button>
+    </div>
+	</form>
+</div>

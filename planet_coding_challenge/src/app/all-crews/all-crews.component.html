@@ -1,1 +1,24 @@
-<p>all-crews works!</p>
+<div class="page-header">
+  <button type="button" [routerLink]="['/sign-in']">Back to sign-in</button>
+  <div class="title justify-content-center">
+    <h2 class="text-center text-light">All Crews</h2>
+  </div>
+</div>
+<div class="page-body">
+  <div class="mat-elevation-z8 table_crew_robots col-sm-8">
+    <!-- <mat-table [dataSource]="dataSource_crews">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let robot">
+          <span class="mobile-label">Name:</span>
+          {{robot}}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2, 4, 6]"
+       [pageSize] = "2">
+    </mat-paginator> -->
+  </div>
+</div>

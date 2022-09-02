@@ -20,8 +20,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['name'];
   selectedUser: string;
   selectedCrew: any;
-  typeOfUser= TypeOfUser;
-  dataSource_robots : MatTableDataSource<any>;
+  typeOfUser = TypeOfUser;
+  dataSourceRobots: MatTableDataSource<any>;
   crews: Crew[]= [
   new Crew("crew1_4f44rf", "Crew no.1", "Jack", ["Robot1", "Robot2"],"Spaceship1"),
   new Crew("crew2_4f44rf", "Crew no.2", "Mike", ["Robot3", "Robot4", "Robot5", "Robot6", "Robot7"],"Spaceship2"),
@@ -33,14 +33,14 @@ export class SignInComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit(){
-    this.dataSource_robots.paginator = this.paginator;
+    this.dataSourceRobots.paginator = this.paginator;
   }
 
   constructor( private router: Router, private crewService: CrewService) { }
 
   ngOnInit(): void {
-    this.getAllCrews();
-    this.dataSource_robots = new MatTableDataSource();
+    //this.getAllCrews();
+    this.dataSourceRobots = new MatTableDataSource();
     this.CrewFormGroup = new FormGroup({
       crew: new FormControl('', Validators.required),
       typeOfUser: new FormControl('', Validators.required),
@@ -53,7 +53,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     var selectedCrewID = event.target.value;
     this.selectedCrew = this.crews.find(x => x.crewID === selectedCrewID);
     console.log("SelectedCrew: ", this.selectedCrew);
-    this.dataSource_robots = new MatTableDataSource(this.selectedCrew.robots);
+    this.dataSourceRobots = new MatTableDataSource(this.selectedCrew.robots);
     this.CrewFormGroup.patchValue({
       crew: this.selectedCrew.name,
       captain: this.selectedCrew.captain,
