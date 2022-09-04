@@ -1,14 +1,13 @@
 
-<div class="modal_edit_planet">
+<div class="modal-edit-planet">
 	<mat-toolbar class="mat-elevation-z1 mb-4">
-
 		<mat-toolbar-row class="text-light">
 			<span>Edit Planet</span>
 		</mat-toolbar-row>
 	</mat-toolbar>
-	<form [formGroup]="PlanetFormGroup">
+	<form [formGroup]="PlanetFormGroup" (ngSubmit)="onSave()">
     <mat-form-field>
-      <input type="text" formControlName="name" matInput placeholder="Planet name" />
+      <input type="text" formControlName="name" matInput placeholder="Planet name"/>
       <mat-error>This field is mandatory.</mat-error>
     </mat-form-field>
     <br>
@@ -39,8 +38,8 @@
     </mat-form-field>
     <div class="button-row">
       <br>
-      <button mat-raised-button class="button py-1 px-5 float-start h6">Close</button>
-      <button mat-raised-button type="submit" [disabled]="PlanetFormGroup.invalid" class="button py-1 px-5 float-end h6">Save</button>
+      <button mat-raised-button (click)="onClose()" class="button py-1 float-start h6 resize-button text-center" style="width: 30%">Close</button>
+      <button mat-raised-button type="submit" [disabled]="PlanetFormGroup.invalid" class="button py-1 float-end h6 resize-button text-center" style="width: 30%">Save</button>
     </div>
 	</form>
 </div>

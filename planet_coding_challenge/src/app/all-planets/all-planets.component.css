@@ -15,3 +15,36 @@ html, body{
   background-color: blue;
   height: 80%;
 }
+
+.large-font-size{
+  font-size: 3vw;
+}
+
+
+.medium-font-size{
+  font-size: 2.2vw;
+}
+
+.small-font-size{
+  font-size: 1.8vw;
+}
+
+@media screen and (max-width: 350px) {
+
+  .large-font-size{
+    font-size: 2.5vw;
+  }
+
+  .medium-font-size{
+    font-size: 2vw;
+  }
+
+  .row-margin-bottom{
+    margin-bottom: 5px !important;
+  }
+
+  .row-margin-null{
+    margin-bottom: 0 !important;
+  }
+}
+

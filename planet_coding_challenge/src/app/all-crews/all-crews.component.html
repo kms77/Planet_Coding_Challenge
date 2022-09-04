@@ -5,20 +5,41 @@
   </div>
 </div>
 <div class="page-body">
-  <div class="mat-elevation-z8 table_crew_robots col-sm-8">
-    <!-- <mat-table [dataSource]="dataSource_crews">
+  <div class="mat-elevation-z8 table_crews">
+    <mat-table [dataSource]="dataSourceCrew">
       <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-        <mat-cell *matCellDef="let robot">
-          <span class="mobile-label">Name:</span>
-          {{robot}}
+        <mat-header-cell *matHeaderCellDef>Crew</mat-header-cell>
+        <mat-cell *matCellDef="let crew">
+          <span class="mobile-label">Crew:</span>
+          {{crew.name}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="captain">
+        <mat-header-cell *matHeaderCellDef>Captain</mat-header-cell>
+        <mat-cell *matCellDef="let crew">
+          <span class="mobile-label">Captain:</span>
+          {{crew.captain}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="shuttle">
+        <mat-header-cell *matHeaderCellDef>Shuttle</mat-header-cell>
+        <mat-cell *matCellDef="let crew">
+          <span class="mobile-label">Shuttle:</span>
+          {{crew.shuttle}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="robots">
+        <mat-header-cell *matHeaderCellDef>robots</mat-header-cell>
+        <mat-cell *matCellDef="let crew">
+          <span class="mobile-label">robots:</span>
+          {{crew.robots}}
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[2, 4, 6]"
+    <mat-paginator [pageSizeOptions]="[5, 10, 105]"
        [pageSize] = "2">
-    </mat-paginator> -->
+    </mat-paginator>
   </div>
 </div>

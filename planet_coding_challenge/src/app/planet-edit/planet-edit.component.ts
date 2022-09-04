@@ -70,4 +70,8 @@ export class PlanetEditComponent implements OnInit {
       this.dialogRef.close();
     }
   }
+
+  onClose(): void{
+    this.dialogRef.close();
+  }
 }

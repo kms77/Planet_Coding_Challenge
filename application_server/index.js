@@ -15,7 +15,6 @@ app.use(
   })
 )
 
-
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
   })
@@ -25,6 +24,7 @@ app.listen(port, () => {
 })
 
 app.get('/crews', db.getCrews)
+app.get('/robots/:id', db.getRobotsOfCrew)
 app.get('/planets', db.getPlanets)
 app.post('/planets', db.addPlanet)
 app.put('/planets/:id', db.updatePlanet)

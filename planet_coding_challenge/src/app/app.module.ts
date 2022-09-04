@@ -45,23 +45,17 @@ import { PlanetEditComponent } from './planet-edit/planet-edit.component';
     PlanetEditComponent
   ],
   imports: [
-
     BrowserModule,
-
-    // BrowserModule,
     AppRoutingModule,
     MatTableModule,
     MatToolbarModule,
-
     NgbModule,
     NoopAnimationsModule,
     MatPaginatorModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-
     BrowserAnimationsModule,
-    // FlexLayoutModule,
     FlexModule,
     ReactiveFormsModule,
     FormsModule,

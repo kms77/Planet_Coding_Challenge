@@ -6,12 +6,53 @@ html, body{
   overflow-x: hidden;
 }
 
-.page-header{
+.page-header{  
   height: 20%;
   background-color: #98353c;
   width: 100%;
 }
 .page-body{
-  background-color: blue;
   height: 80%;
+  background-color: #98353c;
+}
+
+table {
+  width: 100%;
+}
+
+/* .table_crews{
+  display: flex;
+  flex-direction: column;
+  max-height:160px;
+  max-width: 450px;
+} */
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.mat-header-cell, .mat-cell{
+  justify-content: center;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    padding: 8px 24px;
+  }
 }
