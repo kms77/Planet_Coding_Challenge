@@ -17,3 +17,6 @@ mat-toolbar-row{
   background-color: #98353c;
 }
 
+.button-size{
+  width: 30% !important;
+}

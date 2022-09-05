@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlanetService } from '../core/services/planet.service';
 import { Status } from '../core/models/status';
+import { Crew } from '../core/models/crew';
 
 @Component({
   selector: 'app-planet-edit',
@@ -26,11 +27,12 @@ export class PlanetEditComponent implements OnInit {
         this.selectedPlanet = {
           planetID: '',
           name: '',
-          visitedBy: '',
+          visitedBy: 0,
           status: '',
           description: '',
           imageURL: '',
-          numberOfRobots: 0
+          numberOfRobots: 0,
+          crew: new Crew(0, '', '', [], '')
         };
       }
       else {

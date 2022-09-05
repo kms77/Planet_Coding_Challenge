@@ -12,8 +12,8 @@ html, body{
   width: 100%;
 }
 .page-body{
-  background-color: blue;
   height: 80%;
+  background-color: white !important;
 }
 
 .large-font-size{
@@ -48,3 +48,23 @@ html, body{
   }
 }
 
+@media screen and (min-width: 600px) {
+
+  .large-card-margin{
+    margin-top: 30px !important;
+  }
+}
+
+@media screen and (min-width: 750px) {
+
+  .large-card-margin{
+    margin-top: 45px !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+  .large-card-margin{
+    margin-top: 60px !important;
+  }
+}

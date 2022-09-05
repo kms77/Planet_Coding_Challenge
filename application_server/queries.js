@@ -12,7 +12,7 @@ const pool = new Pool({
 
 const getRobotsOfCrew = (request, response) => {
   const id = parseInt(request.params.id);
-  pool.query('SELECT name FROM Robot WHERE crewID = $1', [id], (error, results) => {
+  pool.query('SELECT name FROM Robot WHERE "crewID" = $1', [id], (error, results) => {
     if (error) {
       throw error;
     }

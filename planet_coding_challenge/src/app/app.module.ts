@@ -4,11 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { FlexLayoutModule } from "@angular/flex-layout";
 import { FlexModule } from '@angular/flex-layout';
-
 import { FormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
@@ -23,8 +20,6 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatToolbarModule } from "@angular/material/toolbar";
-
-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';

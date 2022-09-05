@@ -14,10 +14,10 @@
     <mat-form-field>
       <mat-select formControlName="status" placeholder="Status">
         <ng-container>
-          <mat-option value="1">{{status.ok}}</mat-option>
-          <mat-option value="2">{{status.not_ok}}</mat-option>
-          <mat-option value="3">{{status.en_route}}</mat-option>
-          <mat-option value="4">{{status.to_do}}</mat-option>
+          <mat-option value="{{status.ok}}">{{status.ok}}</mat-option>
+          <mat-option value="{{status.not_ok}}">{{status.not_ok}}</mat-option>
+          <mat-option value="{{status.en_route}}">{{status.en_route}}</mat-option>
+          <mat-option value="{{status.to_do}}">{{status.to_do}}</mat-option>
         </ng-container>
       </mat-select>
     </mat-form-field>
@@ -38,8 +38,8 @@
     </mat-form-field>
     <div class="button-row">
       <br>
-      <button mat-raised-button (click)="onClose()" class="button py-1 float-start h6 resize-button text-center" style="width: 30%">Close</button>
-      <button mat-raised-button type="submit" [disabled]="PlanetFormGroup.invalid" class="button py-1 float-end h6 resize-button text-center" style="width: 30%">Save</button>
+      <button mat-raised-button (click)="onClose()" class="button py-1 float-start h6 resize-button text-center button-size">Close</button>
+      <button mat-raised-button type="submit" [disabled]="PlanetFormGroup.invalid" class="button py-1 float-end h6 resize-button text-center button-size">Save</button>
     </div>
 	</form>
 </div>
