@@ -24,7 +24,6 @@ app.listen(port, () => {
 })
 
 app.get('/crews', db.getCrews)
-app.get('/robots/:id', db.getRobotsOfCrew)
 app.get('/planets', db.getPlanets)
 app.post('/planets', db.addPlanet)
 app.put('/planets/:id', db.updatePlanet)

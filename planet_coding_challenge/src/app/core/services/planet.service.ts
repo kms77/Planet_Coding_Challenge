@@ -10,13 +10,15 @@ export class PlanetService {
 
   constructor(private http: HttpClient) { }
 
-  getPlanets(): Observable<any> {
+  public getPlanets(): Observable<any> {
     return this.http.get(serverURL);
   }
 
-  addPlanet(planet: Planet): Observable<any> {
-    return this.http.post(serverURL, planet);
+  public addPlanet(planet: Planet): Observable<any> {
+    return this.http.post(serverURL, planet, {responseType: 'text'});
   }
 
-
+  public updatePlanet(planet: Planet): Observable<any> {
+    return this.http.put(`${serverURL}/${planet.planetID}`, planet, {responseType: 'text'});
+  }
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RobotService } from './robot.service';
+import { LocalService } from './local.service';
 
-describe('RobotService', () => {
-  let service: RobotService;
+describe('LocalService', () => {
+  let service: LocalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RobotService);
+    service = TestBed.inject(LocalService);
   });
 
   it('should be created', () => {

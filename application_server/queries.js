@@ -10,9 +10,9 @@ const pool = new Pool({
   port: 5432,
 })
 
-const getRobotsOfCrew = (request, response) => {
-  const id = parseInt(request.params.id);
-  pool.query('SELECT name FROM Robot WHERE "crewID" = $1', [id], (error, results) => {
+
+const getCrews = (request, response) => {
+  pool.query('select c."crewID", c.captain, c.shuttle, c.name, string_agg(r.name,\',\') as "robots" from crew c JOIN robot r on c."crewID" = r."crewID" group by c."crewID" order by c."crewID";', (error, results) => {
     if (error) {
       throw error;
     }
@@ -20,27 +20,18 @@ const getRobotsOfCrew = (request, response) => {
   });
 }
 
-const getCrews = (request, response) => {
-    pool.query('SELECT * FROM Crew', (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
-    });
-}
-
 const getPlanets = (request, response) => {
-    pool.query('SELECT * FROM Planet', (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
-    });
+  pool.query('select p."planetID", p.name, p."visitedBy", p.status, p.description, p."imageURL", p."numberOfRobots", c."crewID", c.captain ,string_agg(r.name,\',\') as "robots" from planet p join crew c on p."visitedBy"=c."crewID" JOIN robot r on c."crewID" = r."crewID" group by p."planetID", c."crewID" order by p."planetID", c."crewID";', (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
 }
 
 const addPlanet = (request, response) => {
     const { name, visitedBy, status, description, imageURL, numberOfRobots } = request.body;
-    pool.query('INSERT INTO Planet (name, visitedBy, status, description, imageURL, numberOfRobots) VALUES ($1, $2, $3, $4, $5, $6)', [name, visitedBy, status, description, imageURL, numberOfRobots], (error, results) => {
+    pool.query('INSERT INTO Planet (name, "visitedBy", status, description, "imageURL", "numberOfRobots") VALUES ($1, $2, $3, $4, $5, $6)', [name, visitedBy, status, description, imageURL, numberOfRobots], (error, results) => {
       if (error) {
         throw error;
       }
@@ -53,7 +44,7 @@ const updatePlanet = (request, response) => {
     const { name, visitedBy, status, description, imageURL, numberOfRobots } = request.body;
   
     pool.query(
-      'UPDATE Planet SET name = $2, visitedBy = $3, status = $4, description = $5, imageURL = $6, numberOfRobots=$7 WHERE planetID = $1',
+      'UPDATE Planet SET name = $2, "visitedBy" = $3, status = $4, description = $5, "imageURL" = $6, "numberOfRobots"=$7 WHERE "planetID" = $1',
       [id, name, visitedBy, status, description, imageURL, numberOfRobots],
       (error, results) => {
         if (error) {
@@ -80,6 +71,5 @@ module.exports = {
     getPlanets, 
     addPlanet,
     updatePlanet,
-    deletePlanet,
-    getRobotsOfCrew
+    deletePlanet
 }

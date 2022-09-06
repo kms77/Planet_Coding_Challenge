@@ -1,0 +1,12 @@
+CREATE TABLE planet(planetID SERIAL PRIMARY KEY, name VARCHAR(100), visitedBy VARCHAR(100), status VARCHAR(10), description VARCHAR(250), imageURL VARCHAR(100), numberOfRobots INTEGER);
+CREATE TABLE robot(robotID SERIAL PRIMARY KEY, name VARCHAR(100));
+CREATE TABLE crew(crewID SERIAL PRIMARY KEY, captain VARCHAR(100), shuttle VARCHAR(100));
+ALTER TABLE robot ADD crewID INTEGER REFERENCES crew(crewID);
+
+ALTER TABLE planet ALTER COLUMN visitedby TYPE INTEGER  USING (visitedby::integer);
+
+ALTER TABLE planet ADD CONSTRAINT fk_planet_crew FOREIGN KEY (visitedBy) REFERENCES crew(crewID);
+
+ALTER TABLE planet ALTER COLUMN imageurl TYPE VARCHAR(500);
+
+ALTER TABLE crew ADD name VARCHAR(100);

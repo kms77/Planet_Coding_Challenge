@@ -1,0 +1,87 @@
+<div class="container py-5 sign-in-form mt-5">
+  <h2 class="mb-5 text-center">Planet Explorer</h2>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <form [formGroup]="CrewFormGroup" (ngSubmit)="goToAllPlanets()">
+        <div class="form-group row">
+          <div class="col-sm-6 mb-4">
+            <label for="crew" class="form-label">Crew: </label>
+            <select name="crew" class="form-control" formControlName="crew" (change)="onSelectedCrew($event)" required>
+              <option hidden disabled selected value> -- choose your crew -- </option>
+              <option *ngFor="let crew of crews" [value]="crew.crewID" [selected]="crew===selectedCrew"> {{crew.name}}</option>
+            </select>
+            <div *ngIf="submitted && getForm['crew'].invalid" class="col-12 float-start">
+              <div *ngIf="getForm['crew'].errors?.['required']" class="text-danger">
+                Crew is required!
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="type-of-user" class="form-label">Type of user: </label>
+            <select name="type-of-user" class="form-control" formControlName="typeOfUser" required (change)="updateTypeOfUser($event)">
+              <option hidden disabled selected value> -- choose type of user -- </option>
+              <option>{{typeOfUserEnum.captain}}</option>
+              <option>{{typeOfUserEnum.robot}}</option>
+              <option>{{typeOfUserEnum.other}}</option>
+            </select>
+            <div *ngIf="submitted && getForm['typeOfUser'].invalid" class="col-12 float-start">
+              <div *ngIf="getForm['typeOfUser'].errors?.['required']" class="text-danger">
+                Type of user is required!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-6 mb-4">
+            <label for="captain-name" class="form-label">Captain: </label>
+            <input type="text" class="form-control" name="captain-name" readonly formControlName="captain" required>
+            <div *ngIf="submitted && getForm['captain'].invalid" class="col-12 float-start">
+              <div *ngIf="getForm['captain'].errors?.['required']" class="text-danger">
+                  Captain name is missing!
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="shuttle" class="form-label">Shuttle: </label>
+            <input type="text"  class="form-control" name="shuttle" readonly formControlName="shuttle" required>
+            <div *ngIf="submitted && getForm['shuttle'].invalid" class="col-12 float-start">
+              <div *ngIf="getForm['shuttle'].errors?.['required']" class="text-danger">
+                Shuttle name is missing!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mb-5">
+          <div class="col-sm-12">
+              <label class="form-label">Robots: </label>
+              <div class="mat-elevation-z8 table_crew_robots">
+                <mat-table [dataSource]="dataSourceRobots">
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let robot">
+                      <span class="mobile-label">Name:</span>
+                      {{robot}}
+                    </mat-cell>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[2, 4, 6]"
+                    [pageSize] = "2">
+                </mat-paginator>
+              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-4 justify-content-center d-flex">
+            <button [routerLink]="['/all-crews']" type="button" class="button py-2 h6 resize-button text-center button-width">All Crews</button>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4 justify-content-center d-flex">
+            <button type="submit" class="button py-2 h6 resize-button text-center button-width">Explore Planets</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

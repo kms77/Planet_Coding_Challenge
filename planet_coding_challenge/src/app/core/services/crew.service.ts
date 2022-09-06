@@ -9,7 +9,8 @@ const serverURL = 'http://localhost:3000/crews';
 export class CrewService {
 
   constructor(private http: HttpClient) { }
-  getCrews(): Observable<any> {
+
+  public getCrews(): Observable<any> {
     return this.http.get(serverURL);
   }
 

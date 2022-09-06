@@ -2,41 +2,28 @@ body{
   background-color:#98353c;
 }
 
-.container{
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-
 .sign-in-form{
   border: 6px solid black;
   background-color: white;
-  width: 60%;
-  text-align: center;
+  width: 90%;
 }
 
-table {
-  width: 100%;
-}
-
-.table_crew_robots{
-  display: flex;
-  flex-direction: column;
-  max-height:160px;
-  max-width: 450px;
-}
-
-.mat-table {
-  overflow: auto;
-  max-height: 500px;
+.mat-header-cell, .mat-cell{
+  justify-content: center;
 }
 
 .mobile-label {
   display: none;
 }
 
-.mat-header-cell, .mat-cell{
-  justify-content: center;
+.button-width{
+  width: 80%;
+}
+
+@media only screen and (max-width: 500px) {
+  .button-width{
+    width: 150% !important;
+  }
 }
 
 @media(max-width: 600px) {

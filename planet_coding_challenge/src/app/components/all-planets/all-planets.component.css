@@ -6,20 +6,20 @@ html, body{
   overflow-x: hidden;
 }
 
-.page-header{
+#planet-page-header{
   height: 20%;
-  background-color: #98353c;
+  background-color: #98353c !important;
   width: 100%;
 }
-.page-body{
-  height: 80%;
+
+#planet-page-body{
   background-color: white !important;
+
 }
 
 .large-font-size{
   font-size: 3vw;
 }
-
 
 .medium-font-size{
   font-size: 2.2vw;

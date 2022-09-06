@@ -21,15 +21,15 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { AllPlanetsComponent } from './all-planets/all-planets.component';
-import { AllCrewsComponent } from './all-crews/all-crews.component';
+import { AllPlanetsComponent } from './components/all-planets/all-planets.component';
+import { AllCrewsComponent } from './components/all-crews/all-crews.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
-import { PlanetEditComponent } from './planet-edit/planet-edit.component';
+import { PlanetEditComponent } from './components/planet-edit/planet-edit.component';
 @NgModule({
   declarations: [
     AppComponent,

@@ -7,7 +7,7 @@
 	</mat-toolbar>
 	<form [formGroup]="PlanetFormGroup" (ngSubmit)="onSave()">
     <mat-form-field>
-      <input type="text" formControlName="name" matInput placeholder="Planet name"/>
+      <input type="text" formControlName="name" matInput placeholder="Planet name" [readonly]="this.selectedPlanet.planetID !== this.invalidID"/>
       <mat-error>This field is mandatory.</mat-error>
     </mat-form-field>
     <br>
@@ -22,18 +22,18 @@
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field formControlName="description" appearance="fill">
+    <mat-form-field appearance="fill">
       <mat-label>Leave a description</mat-label>
-      <textarea matInput placeholder="Description..."></textarea>
+      <textarea matInput placeholder="Description..." formControlName="description"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input type="text" formControlName="imageURL" matInput placeholder="URL address of the image" />
+      <input type="text" formControlName="imageURL" matInput placeholder="URL address of the image" [readonly]="this.selectedPlanet.planetID !== this.invalidID"/>
       <mat-error>This field is mandatory.</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input type="number" min = "2" formControlName="numberOfRobots" matInput placeholder="Number of robots" />
+      <input type="number" min = "2" formControlName="numberOfRobots" matInput placeholder="Number of robots" [readonly]="this.selectedPlanet.planetID !== this.invalidID"/>
       <mat-error>This field is invalid.</mat-error>
     </mat-form-field>
     <div class="button-row">

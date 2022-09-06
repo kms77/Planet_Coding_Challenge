@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllCrewsComponent } from './all-crews/all-crews.component';
-import { AllPlanetsComponent } from './all-planets/all-planets.component';
+import { AllCrewsComponent } from './components/all-crews/all-crews.component';
+import { AllPlanetsComponent } from './components/all-planets/all-planets.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 const routes: Routes = [
   {path: 'sign-in', component: SignInComponent},

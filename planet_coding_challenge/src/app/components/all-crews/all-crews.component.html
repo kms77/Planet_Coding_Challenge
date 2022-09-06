@@ -1,45 +1,45 @@
-<div class="page-header">
+<div id="crew-page-header">
   <button type="button" [routerLink]="['/sign-in']">Back to sign-in</button>
   <div class="title justify-content-center">
     <h2 class="text-center text-light">All Crews</h2>
   </div>
 </div>
-<div class="page-body">
+<div id="crew-page-body">
   <div class="mat-elevation-z8 table_crews">
     <mat-table [dataSource]="dataSourceCrew">
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Crew</mat-header-cell>
         <mat-cell *matCellDef="let crew">
           <span class="mobile-label">Crew:</span>
-          {{crew.name}}
+          {{crew?.name}}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="captain">
         <mat-header-cell *matHeaderCellDef>Captain</mat-header-cell>
         <mat-cell *matCellDef="let crew">
           <span class="mobile-label">Captain:</span>
-          {{crew.captain}}
+          {{crew?.captain}}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="shuttle">
         <mat-header-cell *matHeaderCellDef>Shuttle</mat-header-cell>
         <mat-cell *matCellDef="let crew">
           <span class="mobile-label">Shuttle:</span>
-          {{crew.shuttle}}
+          {{crew?.shuttle}}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="robots">
-        <mat-header-cell *matHeaderCellDef>robots</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Robots</mat-header-cell>
         <mat-cell *matCellDef="let crew">
-          <span class="mobile-label">robots:</span>
-          {{crew.robots}}
+          <span class="mobile-label">Robots:</span>
+          {{crew?.robots}}
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 105]"
-       [pageSize] = "2">
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+       [pageSize] = "5">
     </mat-paginator>
   </div>
 </div>
