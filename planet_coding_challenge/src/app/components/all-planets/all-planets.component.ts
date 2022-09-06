@@ -47,6 +47,7 @@ export class AllPlanetsComponent implements OnInit {
   //     });
   // }
 
+  // get all planets from the database and save them in the planets array
   getAllPlanets(): void{
     this.planetService.getPlanets().subscribe({
       next: (data) => {
@@ -57,6 +58,7 @@ export class AllPlanetsComponent implements OnInit {
     });
   }
 
+  // check if user has the rights to access the edit modal and open it if so
   editPlanet(planetToEdit: Planet){
     if(this.typeOfUser === this.captainUser){
       this.selectedPlanet = planetToEdit;
@@ -64,6 +66,7 @@ export class AllPlanetsComponent implements OnInit {
     }
   }
 
+  // method to config and open the modal component
   openModalPlanet(typeOfEdit: string){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = "600px";
@@ -85,6 +88,7 @@ export class AllPlanetsComponent implements OnInit {
     });
   }
 
+  // clear the local storage and go to the sign-in page
   backToSignIn(): void{
     this.localService.clearData();
     this.router.navigate(['/sign-in']);

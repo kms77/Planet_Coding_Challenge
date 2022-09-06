@@ -1,9 +1,11 @@
 <div class="container py-5 sign-in-form mt-5">
+  <!-- page title -->
   <h2 class="mb-5 text-center">Planet Explorer</h2>
   <div class="row">
     <div class="col-md-10 mx-auto">
       <form [formGroup]="CrewFormGroup" (ngSubmit)="goToAllPlanets()">
         <div class="form-group row">
+          <!-- name of the crew -->
           <div class="col-sm-6 mb-4">
             <label for="crew" class="form-label">Crew: </label>
             <select name="crew" class="form-control" formControlName="crew" (change)="onSelectedCrew($event)" required>
@@ -16,6 +18,7 @@
               </div>
             </div>
           </div>
+          <!-- type of the user -->
           <div class="col-sm-6 mb-4">
             <label for="type-of-user" class="form-label">Type of user: </label>
             <select name="type-of-user" class="form-control" formControlName="typeOfUser" required (change)="updateTypeOfUser($event)">
@@ -31,6 +34,7 @@
             </div>
           </div>
         </div>
+        <!-- captain's name -->
         <div class="form-group row">
           <div class="col-sm-6 mb-4">
             <label for="captain-name" class="form-label">Captain: </label>
@@ -41,6 +45,7 @@
               </div>
             </div>
           </div>
+          <!-- shuttle -->
           <div class="col-sm-6 mb-4">
             <label for="shuttle" class="form-label">Shuttle: </label>
             <input type="text"  class="form-control" name="shuttle" readonly formControlName="shuttle" required>
@@ -51,6 +56,7 @@
             </div>
           </div>
         </div>
+        <!-- mat table with all robots of the selected crew -->
         <div class="form-group row mb-5">
           <div class="col-sm-12">
               <label class="form-label">Robots: </label>
@@ -72,6 +78,7 @@
               </div>
           </div>
         </div>
+        <!-- buttons -->
         <div class="form-group row">
           <div class="col-4 justify-content-center d-flex">
             <button [routerLink]="['/all-crews']" type="button" class="button py-2 h6 resize-button text-center button-width">All Crews</button>

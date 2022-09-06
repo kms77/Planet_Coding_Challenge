@@ -67,6 +67,7 @@ export class PlanetEditComponent implements OnInit {
     return this.PlanetFormGroup.controls;
   }
 
+  // if the form group is valid than the add or update method are used
   onSave(): void{
     if (this.PlanetFormGroup.invalid){
       return;
@@ -82,10 +83,12 @@ export class PlanetEditComponent implements OnInit {
     }
   }
 
+  // close the modal
   onClose(): void{
     this.dialogRef.close();
   }
 
+  // create a new planet object with the form group values and adds it in the database
   addPlanet(): void{
     var addFormValues = this.controls;
     this.crewID = Number(this.localService.getData("crewID"));
@@ -112,6 +115,7 @@ export class PlanetEditComponent implements OnInit {
     );
   }
 
+  // create a new planet object with the updated form group values and updates the planet in the database
   updatePlanet(): void{
     var editFormValues = this.controls;
     this.crewID = Number(this.localService.getData("crewID"));

@@ -29,6 +29,7 @@ export class AllCrewsComponent implements OnInit {
     this.getAllCrews();
   }
 
+  // get all crews from the database and update the mat table with them
   getAllCrews(): void{
     this.crewService.getCrews().subscribe((crews: Crew[]) => {
       this.crews = crews;

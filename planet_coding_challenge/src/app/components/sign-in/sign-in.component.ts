@@ -35,11 +35,13 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.dataSourceRobots.paginator = this.paginator;
   }
 
+
   constructor(private router: Router, private crewService: CrewService, private localStorage: LocalService) { }
 
   ngOnInit(): void {
     this.getAllCrews();
     this.dataSourceRobots = new MatTableDataSource();
+    // initialize the form group
     this.CrewFormGroup = new FormGroup({
       crew: new FormControl('', Validators.required),
       typeOfUser: new FormControl('', Validators.required),
@@ -48,6 +50,16 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
+   /**
+   * Method to update the form group when a new crew is selected
+   *
+   * @param event - constains the id of the selected crew
+   * @remarks
+   * Not only the form group fields are updated, but also thhe mat table gets a string with the names of the robots
+   *
+   * @returns
+   *
+   */
   onSelectedCrew(event: any): void{
     var selectedCrewID = Number(event.target.value) || 0;
     this.selectedCrew = this.crews.find(x => x.crewID === selectedCrewID);
@@ -65,23 +77,27 @@ export class SignInComponent implements OnInit, AfterViewInit {
     }
   }
 
+  // save the selected type of the user in order to be used as local storage value when going to all planets page
   updateTypeOfUser(event: any): void{
     this.selectedUserType = event.target.value;
     console.log("Type Of User: ", this.selectedUserType);
   }
 
+  // navigate to the all planets page if the form group values are valid
   goToAllPlanets(): void{
     this.submitted = true;
     if(this.CrewFormGroup.invalid){
       return;
     }
     else{
+      // save the local storage data
       this.localStorage.saveData(this.typeOfUserKey, this.selectedUserType);
       this.localStorage.saveData(this.crewID, String(this.selectedCrew.crewID));
       this.router.navigate(['/all-planets']); //, {  queryParams: { typeOfUser: this.selectedUser} });
     }
   }
 
+  // call service to get all the crews from the database and save them in the crews array
   getAllCrews(): void{
     this.crewService.getCrews().subscribe((crews: Crew[]) => {
       console.log("Service crews: ", crews);
@@ -89,6 +105,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
+  // retunrns a collection of child controls where the key for each child is the name under which it is registered.
   get getForm() {
     return this.CrewFormGroup.controls;
   }
